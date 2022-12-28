@@ -2,7 +2,7 @@
 id: xjuuqf0xybll9epclbiqy5s
 title: Ctf Docker
 desc: ''
-updated: 1672142423475
+updated: 1672227017469
 created: 1672142284036
 ---
 
@@ -17,7 +17,7 @@ FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-
+ENV HTTP_PROXY="http://192.168.8.1:10811"
 # apt setup
 ENV UBUNTU_MIRROR=mirrors.tuna.tsinghua.edu.cn
 RUN  sed -i s@/archive.ubuntu.com/@/${UBUNTU_MIRROR}/@g /etc/apt/sources.list
@@ -83,6 +83,7 @@ RUN ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && \
 
 # python setup
 ENV PIP_MIRROR=https://pypi.tuna.tsinghua.edu.cn/simple
+
 # RUN pip install -i ${PIP_MIRROR} "pip < 21.0" -U && pip3 install -i ${PIP_MIRROR}  "pip < 21.0" -U 
 RUN python3 -m pip install -U pip -i ${PIP_MIRROR}
 RUN pip config set global.index-url ${PIP_MIRROR}
@@ -109,8 +110,8 @@ RUN gem sources --remove https://rubygems.org/ && \
 
 
 # git setup
-ENV GIT_PROXY="http://192.168.8.1:10811" 
-RUN git config --global http.proxy ${GIT_PROXY}
+ENV GIT_HTTP_PROXY=${HTTP_PROXY} 
+RUN git config --global http.proxy ${GIT_HTTP_PROXY}
 RUN git clone --depth 1 https://github.com/pwndbg/pwndbg && \
     cd pwndbg && chmod +x setup.sh && ./setup.sh
 
@@ -122,8 +123,7 @@ RUN git clone --depth 1 https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb && \
 RUN git clone https://github.com/lieanu/LibcSearcher.git && \
     cd LibcSearcher && \
     python3 setup.py develop
-ENV CMD_PROXY="http://192.168.8.1:10811" 
-RUN echo http_proxy=${CMD_PROXY}  >> ~/.bashrc 
+RUN echo http_proxy=${HTTP_PROXY}  >> ~/.bashrc 
 
 
 RUN git clone --depth 1 https://github.com/niklasb/libc-database.git libc-database && \
@@ -132,7 +132,7 @@ RUN git clone --depth 1 https://github.com/niklasb/libc-database.git libc-databa
 
 # wget 
 
-RUN http_proxy=${CMD_PROXY}  wget -O ~/.gdbinit-gef.py -q http://gef.blah.cat/py
+RUN http_proxy=${HTTP_PROXY}  wget -O ~/.gdbinit-gef.py -q http://gef.blah.cat/py
 
 
 
