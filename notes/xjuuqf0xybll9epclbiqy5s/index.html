@@ -1,0 +1,213 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><link rel="icon" href="/notes/favicon.ico"/><title>Ctf Docker</title><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="description" content="Personal Knowledge Space"/><meta property="og:title" content="Ctf Docker"/><meta property="og:description" content="Personal Knowledge Space"/><meta property="og:url" content="https://b1babo.github.io/notes/notes/xjuuqf0xybll9epclbiqy5s/"/><meta property="og:type" content="article"/><meta property="article:published_time" content="12/27/2022"/><meta property="article:modified_time" content="12/28/2022"/><link rel="canonical" href="https://b1babo.github.io/notes/notes/xjuuqf0xybll9epclbiqy5s/"/><meta name="next-head-count" content="14"/><link rel="preload" href="/notes/_next/static/css/43ff47b87e0ea661.css" as="style"/><link rel="stylesheet" href="/notes/_next/static/css/43ff47b87e0ea661.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/notes/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/notes/_next/static/chunks/webpack-3c3caf24173c5c0a.js" defer=""></script><script src="/notes/_next/static/chunks/framework-28c999baf2863c3d.js" defer=""></script><script src="/notes/_next/static/chunks/main-5bb057769933cd70.js" defer=""></script><script src="/notes/_next/static/chunks/pages/_app-9ff413458d97c377.js" defer=""></script><script src="/notes/_next/static/chunks/935-4dee79e80b8641c6.js" defer=""></script><script src="/notes/_next/static/chunks/6-50972def09142ee2.js" defer=""></script><script src="/notes/_next/static/chunks/pages/notes/%5Bid%5D-78d472fa3b924116.js" defer=""></script><script src="/notes/_next/static/TVRBOQx7vrqEyJPi_2-lA/_buildManifest.js" defer=""></script><script src="/notes/_next/static/TVRBOQx7vrqEyJPi_2-lA/_ssgManifest.js" defer=""></script></head><body><div id="__next" data-reactroot=""><section class="ant-layout" style="width:100%;min-height:100%"><header class="ant-layout-header" style="position:fixed;isolation:isolate;z-index:1;width:100%;border-bottom:1px solid #d4dadf;height:64px;padding:0 24px 0 2px"><div class="ant-row ant-row-center" style="max-width:992px;justify-content:space-between;margin:0 auto"><div style="display:flex" class="ant-col ant-col-xs-20 ant-col-sm-4"></div><div class="ant-col gutter-row ant-col-xs-0 ant-col-sm-20 ant-col-md-20 ant-col-lg-19"><div class="ant-select ant-select-lg ant-select-auto-complete ant-select-single ant-select-allow-clear ant-select-show-search" style="width:100%"><div class="ant-select-selector"><span class="ant-select-selection-search"><input type="search" autoComplete="off" class="ant-select-selection-search-input" role="combobox" aria-haspopup="listbox" aria-owns="undefined_list" aria-autocomplete="list" aria-controls="undefined_list" aria-activedescendant="undefined_list_0" value=""/></span><span class="ant-select-selection-placeholder">For full text search please use the &#x27;?&#x27; prefix. e.g. ? Onboarding</span></div></div></div><div style="display:none;align-items:center;justify-content:center" class="ant-col ant-col-xs-4 ant-col-sm-4 ant-col-md-0 ant-col-lg-0"><span role="img" aria-label="menu" style="font-size:24px" tabindex="-1" class="anticon anticon-menu"><svg viewBox="64 64 896 896" focusable="false" data-icon="menu" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path></svg></span></div></div></header><section class="ant-layout" style="margin-top:64px;display:flex;flex-direction:row"><div class="site-layout-sidebar" style="flex:0 0 auto;width:calc(max((100% - 992px) / 2, 0px) + 200px);min-width:200px;padding-left:calc((100% - 992px) / 2)"><aside class="ant-layout-sider ant-layout-sider-dark" style="position:fixed;overflow:auto;height:calc(100vh - 64px);background-color:transparent;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"><div class="ant-layout-sider-children"></div></aside></div><main class="ant-layout-content side-layout-main" style="max-width:1200px;min-width:0;display:block"><div style="padding:0 24px"><div class="main-content" role="main"><div class="ant-row"><div class="ant-col ant-col-24"><div class="ant-row" style="margin-left:-10px;margin-right:-10px"><div style="padding-left:10px;padding-right:10px" class="ant-col ant-col-xs-24 ant-col-md-18"><div><h1 id="ctf-docker"><a aria-hidden="true" class="anchor-heading icon-link" href="#ctf-docker"></a>Ctf Docker</h1>
+<h2 id="docker-file"><a aria-hidden="true" class="anchor-heading icon-link" href="#docker-file"></a>docker file</h2>
+<pre class="language-docker"><code class="language-docker"><span class="token comment"># Dockerfile</span>
+<span class="token comment"># FROM phusion/baseimage:master-amd64</span>
+<span class="token comment"># FROM ubuntu:16.04</span>
+<span class="token instruction"><span class="token keyword">FROM</span> ubuntu:20.04</span>
+
+<span class="token instruction"><span class="token keyword">ENV</span> DEBIAN_FRONTEND=noninteractive</span>
+
+<span class="token instruction"><span class="token keyword">ENV</span> HTTP_PROXY=<span class="token string">"http://192.168.8.1:10811"</span></span>
+<span class="token comment"># apt setup</span>
+<span class="token instruction"><span class="token keyword">ENV</span> UBUNTU_MIRROR=mirrors.tuna.tsinghua.edu.cn</span>
+<span class="token instruction"><span class="token keyword">RUN</span>  sed -i s@/archive.ubuntu.com/@/<span class="token variable">${UBUNTU_MIRROR}</span>/@g /etc/apt/sources.list</span>
+<span class="token instruction"><span class="token keyword">RUN</span>  sed -i s@/security.ubuntu.com/@/<span class="token variable">${UBUNTU_MIRROR}</span>/@g /etc/apt/sources.list</span>
+<span class="token instruction"><span class="token keyword">RUN</span>  apt-get clean  </span>
+<span class="token instruction"><span class="token keyword">RUN</span>  apt-get update</span>
+
+<span class="token comment"># RUN  apt-get install \</span>
+<span class="token comment">#         python python3 \</span>
+<span class="token comment">#         python-pip python3-pip \</span>
+<span class="token comment">#         python-dev libffi-dev libssl-dev \</span>
+<span class="token comment">#         vim \</span>
+<span class="token comment">#         lib32ncurses5 lib32z1 \</span>
+<span class="token comment">#         ruby gem git \</span>
+<span class="token comment">#          -y</span>
+
+<span class="token comment"># install some lib using apt</span>
+<span class="token instruction"><span class="token keyword">RUN</span> dpkg --add-architecture i386 &#x26;&#x26; <span class="token operator">\</span>
+    apt-get -y update &#x26;&#x26; <span class="token operator">\</span>
+    apt install -y <span class="token operator">\</span>
+    libc6:i386 <span class="token operator">\</span>
+    libc6-dbg:i386 <span class="token operator">\</span>
+    libc6-dbg <span class="token operator">\</span>
+    lib32stdc++6 <span class="token operator">\</span>
+    g++-multilib <span class="token operator">\</span>
+    cmake <span class="token operator">\</span>
+    ipython3 <span class="token operator">\</span>
+    vim <span class="token operator">\</span>
+    net-tools <span class="token operator">\</span>
+    iputils-ping <span class="token operator">\</span>
+    libffi-dev <span class="token operator">\</span>
+    libssl-dev <span class="token operator">\</span>
+    python3-dev <span class="token operator">\</span>
+    python3-pip <span class="token operator">\</span>
+    build-essential <span class="token operator">\</span>
+    ruby <span class="token operator">\</span>
+    ruby-dev <span class="token operator">\</span>
+    tmux <span class="token operator">\</span>
+    strace <span class="token operator">\</span>
+    ltrace <span class="token operator">\</span>
+    nasm <span class="token operator">\</span>
+    wget <span class="token operator">\</span>
+    gdb <span class="token operator">\</span>
+    gdb-multiarch <span class="token operator">\</span>
+    netcat <span class="token operator">\</span>
+    socat <span class="token operator">\</span>
+    git <span class="token operator">\</span>
+    patchelf <span class="token operator">\</span>
+    gawk <span class="token operator">\</span>
+    file <span class="token operator">\</span>
+    python3-distutils <span class="token operator">\</span>
+    bison <span class="token operator">\</span>
+    rpm2cpio cpio <span class="token operator">\</span>
+    zstd <span class="token operator">\</span>
+    tzdata --fix-missing &#x26;&#x26; <span class="token operator">\</span>
+    rm -rf /var/lib/apt/list/*</span>
+
+<span class="token comment"># timezone</span>
+<span class="token instruction"><span class="token keyword">ENV</span> TZ=Asia/Shanghai</span>
+<span class="token instruction"><span class="token keyword">RUN</span> ln -fs /usr/share/zoneinfo/<span class="token variable">$TZ</span> /etc/localtime &#x26;&#x26; <span class="token operator">\</span>
+    dpkg-reconfigure -f noninteractive tzdata</span>
+
+
+<span class="token comment"># python setup</span>
+<span class="token instruction"><span class="token keyword">ENV</span> PIP_MIRROR=https://pypi.tuna.tsinghua.edu.cn/simple</span>
+
+<span class="token comment"># RUN pip install -i ${PIP_MIRROR} "pip &#x3C; 21.0" -U &#x26;&#x26; pip3 install -i ${PIP_MIRROR}  "pip &#x3C; 21.0" -U </span>
+<span class="token instruction"><span class="token keyword">RUN</span> python3 -m pip install -U pip -i <span class="token variable">${PIP_MIRROR}</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> pip config set global.index-url <span class="token variable">${PIP_MIRROR}</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> python3 -m pip install --no-cache-dir <span class="token operator">\</span>
+    ropgadget <span class="token operator">\</span>
+    z3-solver <span class="token operator">\</span>
+    smmap2 <span class="token operator">\</span>
+    apscheduler <span class="token operator">\</span>
+    ropper <span class="token operator">\</span>
+    unicorn <span class="token operator">\</span>
+    keystone-engine <span class="token operator">\</span>
+    capstone <span class="token operator">\</span>
+    angr <span class="token operator">\</span>
+    pebble <span class="token operator">\</span>
+    r2pipe <span class="token operator">\</span>
+    requests <span class="token operator">\</span>
+    pwntools</span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> gem sources --remove https://rubygems.org/ &#x26;&#x26; <span class="token operator">\</span>
+    gem sources -a http://gems.ruby-china.com/ &#x26;&#x26; <span class="token operator">\</span>
+    gem install one_gadget seccomp-tools &#x26;&#x26; <span class="token operator">\</span>
+    rm -rf /var/lib/gems/2.*/cache/*</span>
+
+
+
+<span class="token comment"># git setup</span>
+<span class="token instruction"><span class="token keyword">ENV</span> GIT_HTTP_PROXY=<span class="token variable">${HTTP_PROXY}</span> </span>
+<span class="token instruction"><span class="token keyword">RUN</span> git config --global http.proxy <span class="token variable">${GIT_HTTP_PROXY}</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> git clone --depth 1 https://github.com/pwndbg/pwndbg &#x26;&#x26; <span class="token operator">\</span>
+    cd pwndbg &#x26;&#x26; chmod +x setup.sh &#x26;&#x26; ./setup.sh</span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> git clone --depth 1 https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb &#x26;&#x26; <span class="token operator">\</span>
+    cd ~/Pwngdb &#x26;&#x26; mv .gdbinit .gdbinit-pwngdb &#x26;&#x26; <span class="token operator">\</span>
+    sed -i <span class="token string">"s?source ~/peda/peda.py?# source ~/peda/peda.py?g"</span> .gdbinit-pwngdb &#x26;&#x26; <span class="token operator">\</span>
+    echo <span class="token string">"source ~/Pwngdb/.gdbinit-pwngdb"</span> >> ~/.gdbinit</span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> git clone https://github.com/lieanu/LibcSearcher.git &#x26;&#x26; <span class="token operator">\</span>
+    cd LibcSearcher &#x26;&#x26; <span class="token operator">\</span>
+    python3 setup.py develop</span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo http_proxy=<span class="token variable">${HTTP_PROXY}</span>  >> ~/.bashrc </span>
+
+
+<span class="token instruction"><span class="token keyword">RUN</span> git clone --depth 1 https://github.com/niklasb/libc-database.git libc-database &#x26;&#x26; <span class="token operator">\</span>
+    cd libc-database &#x26;&#x26; ./get ubuntu debian || echo <span class="token string">"/libc-database/"</span> > ~/.libcdb_path &#x26;&#x26; <span class="token operator">\</span>
+    rm -rf /tmp/*</span>
+
+<span class="token comment"># wget </span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> http_proxy=<span class="token variable">${HTTP_PROXY}</span>  wget -O ~/.gdbinit-gef.py -q http://gef.blah.cat/py</span>
+
+
+
+<span class="token instruction"><span class="token keyword">RUN</span> mkdir /root/workspace</span>
+
+</code></pre>
+<h2 id="run-script"><a aria-hidden="true" class="anchor-heading icon-link" href="#run-script"></a>run script</h2>
+<pre class="language-sh"><code class="language-sh">#!/bin/bash
+
+# ctf-docker.sh
+OWNERNAME="b1babo"
+IMAGENAME="ctf-docker"
+TAGNAME="v.1.0"
+CONTAINERNAME="ctf"
+PORTSTRING=""
+if [ "${PORTFWD}" = "" ]
+then
+   PORTFWD="20080:80,20443:443,28080:8080,24433:4433,9999:9999"
+fi
+PORTFWD=$(echo ${PORTFWD} | tr -cd [0-9,:])
+IFS=',' read -ra PORTLIST &#x3C;&#x3C;&#x3C; "${PORTFWD}"
+for PORTPAIR in "${PORTLIST[@]}"
+do
+   SPORT=$(echo ${PORTPAIR} | cut -d':' -f1)
+   PORTSTRING="${PORTSTRING} -p ${SPORT}:${SPORT}"
+done
+
+
+
+
+function build_image(){
+    echo [+] building $OWNERNAME/$IMAGENAME:$TAGNAME
+    DOCKER_BUILDKIT=1 docker build -t $OWNERNAME/$IMAGENAME:$TAGNAME -f Dockerfile .
+}
+
+function run_docker(){
+    echo [+] runing $OWNERNAME/$IMAGENAME:$TAGNAME ${PORTSTRING}
+    docker run -it  ${PORTSTRING} --name $CONTAINERNAME --mount "type=bind,src=$(pwd)/workspace,dst=/root/workspace" $OWNERNAME/$IMAGENAME:$TAGNAME 
+        -e PORTFWD="${PORTFWD}" \
+        # --rm \
+        --cap-add=NET_ADMIN \
+        --cap-add=SYS_ADMIN \
+        --security-opt apparmor=unconfined \
+        --device=/dev/net/tun \
+        --network=host \
+        
+}
+
+function rm_image(){
+    docker container rm $IMAGENAME
+}
+
+
+# Handle arguments
+function show_help {
+    echo "Usage: $0 [-b] [-r]"
+    echo "-b - build ctf docker image"
+    echo "-r - run ctf docker"
+}
+
+
+if [[ $# &#x3C; 1 ]]; then
+    show_help
+    exit 1
+fi
+
+
+# 选项后面的冒号表示需要参数
+while getopts "brh" optname
+do
+    case "$optname" in
+      "b")
+        build_image
+        ;;
+      "r")
+        run_docker 
+        ;;
+      "h")
+        echo "Usage: $0 [-b] [-r]"
+        ;;
+      *)
+        echo "Unknown options"
+        ;;
+    esac
+    #echo "option index is $OPTIND"
+done
+
+</code></pre></div></div><div style="padding-left:10px;padding-right:10px" class="ant-col ant-col-xs-0 ant-col-md-6"><div><div class=""><div class="ant-anchor-wrapper dendron-toc" style="max-height:calc(100vh - 64px);z-index:1"><div class="ant-anchor"><div class="ant-anchor-ink"><span class="ant-anchor-ink-ball"></span></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#docker-file" title="docker file">docker file</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#run-script" title="run script">run script</a></div></div></div></div></div></div></div></div></div></div></div><div class="ant-divider ant-divider-horizontal" role="separator"></div><footer class="ant-layout-footer" style="padding:0 24px 24px"></footer></main></section></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"note":{"id":"xjuuqf0xybll9epclbiqy5s","title":"Ctf Docker","desc":"","updated":1672227017469,"created":1672142284036,"custom":{},"fname":"computer.security.ctf.ctf-docker","type":"note","vault":{"fsPath":".","selfContained":true,"name":"dendron-note"},"contentHash":"6862807d1bfaa79bcbedcdc22846024f","links":[],"anchors":{"docker-file":{"type":"header","text":"docker file","value":"docker-file","line":9,"column":0,"depth":2},"run-script":{"type":"header","text":"run script","value":"run-script","line":142,"column":0,"depth":2}},"children":[],"parent":"j5fxwzqd090z5y7p4vbulnd","data":{}},"body":"\u003ch1 id=\"ctf-docker\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#ctf-docker\"\u003e\u003c/a\u003eCtf Docker\u003c/h1\u003e\n\u003ch2 id=\"docker-file\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#docker-file\"\u003e\u003c/a\u003edocker file\u003c/h2\u003e\n\u003cpre class=\"language-docker\"\u003e\u003ccode class=\"language-docker\"\u003e\u003cspan class=\"token comment\"\u003e# Dockerfile\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e# FROM phusion/baseimage:master-amd64\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e# FROM ubuntu:16.04\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eFROM\u003c/span\u003e ubuntu:20.04\u003c/span\u003e\n\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eENV\u003c/span\u003e DEBIAN_FRONTEND=noninteractive\u003c/span\u003e\n\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eENV\u003c/span\u003e HTTP_PROXY=\u003cspan class=\"token string\"\u003e\"http://192.168.8.1:10811\"\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e# apt setup\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eENV\u003c/span\u003e UBUNTU_MIRROR=mirrors.tuna.tsinghua.edu.cn\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e  sed -i s@/archive.ubuntu.com/@/\u003cspan class=\"token variable\"\u003e${UBUNTU_MIRROR}\u003c/span\u003e/@g /etc/apt/sources.list\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e  sed -i s@/security.ubuntu.com/@/\u003cspan class=\"token variable\"\u003e${UBUNTU_MIRROR}\u003c/span\u003e/@g /etc/apt/sources.list\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e  apt-get clean  \u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e  apt-get update\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e# RUN  apt-get install \\\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e#         python python3 \\\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e#         python-pip python3-pip \\\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e#         python-dev libffi-dev libssl-dev \\\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e#         vim \\\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e#         lib32ncurses5 lib32z1 \\\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e#         ruby gem git \\\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e#          -y\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e# install some lib using apt\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e dpkg --add-architecture i386 \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    apt-get -y update \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    apt install -y \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    libc6:i386 \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    libc6-dbg:i386 \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    libc6-dbg \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    lib32stdc++6 \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    g++-multilib \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    cmake \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    ipython3 \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    vim \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    net-tools \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    iputils-ping \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    libffi-dev \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    libssl-dev \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    python3-dev \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    python3-pip \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    build-essential \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    ruby \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    ruby-dev \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    tmux \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    strace \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    ltrace \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    nasm \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    wget \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    gdb \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    gdb-multiarch \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    netcat \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    socat \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    git \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    patchelf \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    gawk \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    file \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    python3-distutils \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    bison \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    rpm2cpio cpio \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    zstd \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    tzdata --fix-missing \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    rm -rf /var/lib/apt/list/*\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e# timezone\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eENV\u003c/span\u003e TZ=Asia/Shanghai\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e ln -fs /usr/share/zoneinfo/\u003cspan class=\"token variable\"\u003e$TZ\u003c/span\u003e /etc/localtime \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    dpkg-reconfigure -f noninteractive tzdata\u003c/span\u003e\n\n\n\u003cspan class=\"token comment\"\u003e# python setup\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eENV\u003c/span\u003e PIP_MIRROR=https://pypi.tuna.tsinghua.edu.cn/simple\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e# RUN pip install -i ${PIP_MIRROR} \"pip \u0026#x3C; 21.0\" -U \u0026#x26;\u0026#x26; pip3 install -i ${PIP_MIRROR}  \"pip \u0026#x3C; 21.0\" -U \u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e python3 -m pip install -U pip -i \u003cspan class=\"token variable\"\u003e${PIP_MIRROR}\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e pip config set global.index-url \u003cspan class=\"token variable\"\u003e${PIP_MIRROR}\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e python3 -m pip install --no-cache-dir \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    ropgadget \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    z3-solver \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    smmap2 \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    apscheduler \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    ropper \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    unicorn \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    keystone-engine \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    capstone \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    angr \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    pebble \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    r2pipe \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    requests \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    pwntools\u003c/span\u003e\n\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e gem sources --remove https://rubygems.org/ \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    gem sources -a http://gems.ruby-china.com/ \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    gem install one_gadget seccomp-tools \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    rm -rf /var/lib/gems/2.*/cache/*\u003c/span\u003e\n\n\n\n\u003cspan class=\"token comment\"\u003e# git setup\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eENV\u003c/span\u003e GIT_HTTP_PROXY=\u003cspan class=\"token variable\"\u003e${HTTP_PROXY}\u003c/span\u003e \u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e git config --global http.proxy \u003cspan class=\"token variable\"\u003e${GIT_HTTP_PROXY}\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e git clone --depth 1 https://github.com/pwndbg/pwndbg \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    cd pwndbg \u0026#x26;\u0026#x26; chmod +x setup.sh \u0026#x26;\u0026#x26; ./setup.sh\u003c/span\u003e\n\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e git clone --depth 1 https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    cd ~/Pwngdb \u0026#x26;\u0026#x26; mv .gdbinit .gdbinit-pwngdb \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    sed -i \u003cspan class=\"token string\"\u003e\"s?source ~/peda/peda.py?# source ~/peda/peda.py?g\"\u003c/span\u003e .gdbinit-pwngdb \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    echo \u003cspan class=\"token string\"\u003e\"source ~/Pwngdb/.gdbinit-pwngdb\"\u003c/span\u003e \u003e\u003e ~/.gdbinit\u003c/span\u003e\n\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e git clone https://github.com/lieanu/LibcSearcher.git \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    cd LibcSearcher \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    python3 setup.py develop\u003c/span\u003e\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e echo http_proxy=\u003cspan class=\"token variable\"\u003e${HTTP_PROXY}\u003c/span\u003e  \u003e\u003e ~/.bashrc \u003c/span\u003e\n\n\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e git clone --depth 1 https://github.com/niklasb/libc-database.git libc-database \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    cd libc-database \u0026#x26;\u0026#x26; ./get ubuntu debian || echo \u003cspan class=\"token string\"\u003e\"/libc-database/\"\u003c/span\u003e \u003e ~/.libcdb_path \u0026#x26;\u0026#x26; \u003cspan class=\"token operator\"\u003e\\\u003c/span\u003e\n    rm -rf /tmp/*\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e# wget \u003c/span\u003e\n\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e http_proxy=\u003cspan class=\"token variable\"\u003e${HTTP_PROXY}\u003c/span\u003e  wget -O ~/.gdbinit-gef.py -q http://gef.blah.cat/py\u003c/span\u003e\n\n\n\n\u003cspan class=\"token instruction\"\u003e\u003cspan class=\"token keyword\"\u003eRUN\u003c/span\u003e mkdir /root/workspace\u003c/span\u003e\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"run-script\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#run-script\"\u003e\u003c/a\u003erun script\u003c/h2\u003e\n\u003cpre class=\"language-sh\"\u003e\u003ccode class=\"language-sh\"\u003e#!/bin/bash\n\n# ctf-docker.sh\nOWNERNAME=\"b1babo\"\nIMAGENAME=\"ctf-docker\"\nTAGNAME=\"v.1.0\"\nCONTAINERNAME=\"ctf\"\nPORTSTRING=\"\"\nif [ \"${PORTFWD}\" = \"\" ]\nthen\n   PORTFWD=\"20080:80,20443:443,28080:8080,24433:4433,9999:9999\"\nfi\nPORTFWD=$(echo ${PORTFWD} | tr -cd [0-9,:])\nIFS=',' read -ra PORTLIST \u0026#x3C;\u0026#x3C;\u0026#x3C; \"${PORTFWD}\"\nfor PORTPAIR in \"${PORTLIST[@]}\"\ndo\n   SPORT=$(echo ${PORTPAIR} | cut -d':' -f1)\n   PORTSTRING=\"${PORTSTRING} -p ${SPORT}:${SPORT}\"\ndone\n\n\n\n\nfunction build_image(){\n    echo [+] building $OWNERNAME/$IMAGENAME:$TAGNAME\n    DOCKER_BUILDKIT=1 docker build -t $OWNERNAME/$IMAGENAME:$TAGNAME -f Dockerfile .\n}\n\nfunction run_docker(){\n    echo [+] runing $OWNERNAME/$IMAGENAME:$TAGNAME ${PORTSTRING}\n    docker run -it  ${PORTSTRING} --name $CONTAINERNAME --mount \"type=bind,src=$(pwd)/workspace,dst=/root/workspace\" $OWNERNAME/$IMAGENAME:$TAGNAME \n        -e PORTFWD=\"${PORTFWD}\" \\\n        # --rm \\\n        --cap-add=NET_ADMIN \\\n        --cap-add=SYS_ADMIN \\\n        --security-opt apparmor=unconfined \\\n        --device=/dev/net/tun \\\n        --network=host \\\n        \n}\n\nfunction rm_image(){\n    docker container rm $IMAGENAME\n}\n\n\n# Handle arguments\nfunction show_help {\n    echo \"Usage: $0 [-b] [-r]\"\n    echo \"-b - build ctf docker image\"\n    echo \"-r - run ctf docker\"\n}\n\n\nif [[ $# \u0026#x3C; 1 ]]; then\n    show_help\n    exit 1\nfi\n\n\n# 选项后面的冒号表示需要参数\nwhile getopts \"brh\" optname\ndo\n    case \"$optname\" in\n      \"b\")\n        build_image\n        ;;\n      \"r\")\n        run_docker \n        ;;\n      \"h\")\n        echo \"Usage: $0 [-b] [-r]\"\n        ;;\n      *)\n        echo \"Unknown options\"\n        ;;\n    esac\n    #echo \"option index is $OPTIND\"\ndone\n\n\u003c/code\u003e\u003c/pre\u003e","noteIndex":{"id":"ua6fcc7oj4utcqkv8dhmcb8","title":"b1babo's note","desc":"","updated":1669076632533,"created":1668950311250,"custom":{"nav_order":0,"permalink":"/"},"fname":"root","type":"note","vault":{"fsPath":".","selfContained":true,"name":"dendron-note"},"contentHash":"15dbb1bbcda17b2620bd900a3c14c525","links":[],"anchors":{},"children":["z6zdce798dlnm1qvlbj0147","u92paxy6iqch8vik9v6f4gm"],"parent":null,"data":{},"body":"\nwrite and record something.\n"},"collectionChildren":null,"customHeadContent":null,"config":{"version":5,"dev":{"enablePreviewV2":true,"enableSelfContainedVaults":true},"commands":{"lookup":{"note":{"selectionMode":"extract","confirmVaultOnCreate":true,"vaultSelectionModeOnCreate":"smart","leaveTrace":false,"bubbleUpCreateNew":true,"fuzzThreshold":0.2}},"randomNote":{},"insertNoteLink":{"aliasMode":"none","enableMultiSelect":false},"insertNoteIndex":{"enableMarker":false},"copyNoteLink":{"aliasMode":"title"},"templateHierarchy":"template"},"workspace":{"vaults":[{"fsPath":".","selfContained":true,"name":"dendron-note"}],"journal":{"dailyDomain":"daily","name":"journal","dateFormat":"y.MM.dd","addBehavior":"childOfDomain"},"scratch":{"name":"scratch","dateFormat":"y.MM.dd.HHmmss","addBehavior":"asOwnDomain"},"task":{"name":"task","dateFormat":"y.MM.dd","addBehavior":"asOwnDomain","statusSymbols":{"":" ","wip":"w","done":"x","assigned":"a","moved":"m","blocked":"b","delegated":"l","dropped":"d","pending":"y"},"taskCompleteStatus":["done","x"],"prioritySymbols":{"H":"high","M":"medium","L":"low"},"todoIntegration":false,"createTaskSelectionType":"selection2link"},"graph":{"zoomSpeed":1,"createStub":false},"enableAutoCreateOnDefinition":false,"enableXVaultWikiLink":false,"enableRemoteVaultInit":true,"enableUserTags":true,"enableHashTags":true,"workspaceVaultSyncMode":"noCommit","enableAutoFoldFrontmatter":false,"enableEditorDecorations":true,"maxPreviewsCached":10,"maxNoteLength":204800,"enableFullHierarchyNoteTitle":false,"enableHandlebarTemplates":true,"enableSmartRefs":false},"preview":{"enableFMTitle":true,"enableNoteTitleForLink":true,"enableFrontmatterTags":true,"enableHashesForFMTags":false,"enablePrettyRefs":true,"enableKatex":true,"automaticallyShowPreview":false,"enableMermaid":true},"publishing":{"enableFMTitle":true,"enableNoteTitleForLink":true,"enablePrettyRefs":true,"enableKatex":true,"copyAssets":true,"siteHierarchies":["root"],"writeStubs":false,"siteRootDir":"docs","seo":{"title":"Dendron","description":"Personal Knowledge Space"},"github":{"enableEditLink":true,"editLinkText":"Edit this page on GitHub","editBranch":"main","editViewMode":"tree"},"enableSiteLastModified":true,"enableFrontmatterTags":true,"enableHashesForFMTags":false,"enableRandomlyColoredTags":true,"enableTaskNotes":true,"enablePrettyLinks":true,"searchMode":"search","siteUrl":"https://b1babo.github.io","enableBackLinks":true,"assetsPrefix":"/notes","enableHierarchyDisplay":true,"enableMermaid":true,"siteFaviconPath":"favicon.ico","siteIndex":"root"}}},"__N_SSG":true},"page":"/notes/[id]","query":{"id":"xjuuqf0xybll9epclbiqy5s"},"buildId":"TVRBOQx7vrqEyJPi_2-lA","assetPrefix":"/notes","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

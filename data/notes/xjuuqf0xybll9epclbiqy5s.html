@@ -1,0 +1,213 @@
+<h1 id="ctf-docker"><a aria-hidden="true" class="anchor-heading icon-link" href="#ctf-docker"></a>Ctf Docker</h1>
+<h2 id="docker-file"><a aria-hidden="true" class="anchor-heading icon-link" href="#docker-file"></a>docker file</h2>
+<pre class="language-docker"><code class="language-docker"><span class="token comment"># Dockerfile</span>
+<span class="token comment"># FROM phusion/baseimage:master-amd64</span>
+<span class="token comment"># FROM ubuntu:16.04</span>
+<span class="token instruction"><span class="token keyword">FROM</span> ubuntu:20.04</span>
+
+<span class="token instruction"><span class="token keyword">ENV</span> DEBIAN_FRONTEND=noninteractive</span>
+
+<span class="token instruction"><span class="token keyword">ENV</span> HTTP_PROXY=<span class="token string">"http://192.168.8.1:10811"</span></span>
+<span class="token comment"># apt setup</span>
+<span class="token instruction"><span class="token keyword">ENV</span> UBUNTU_MIRROR=mirrors.tuna.tsinghua.edu.cn</span>
+<span class="token instruction"><span class="token keyword">RUN</span>  sed -i s@/archive.ubuntu.com/@/<span class="token variable">${UBUNTU_MIRROR}</span>/@g /etc/apt/sources.list</span>
+<span class="token instruction"><span class="token keyword">RUN</span>  sed -i s@/security.ubuntu.com/@/<span class="token variable">${UBUNTU_MIRROR}</span>/@g /etc/apt/sources.list</span>
+<span class="token instruction"><span class="token keyword">RUN</span>  apt-get clean  </span>
+<span class="token instruction"><span class="token keyword">RUN</span>  apt-get update</span>
+
+<span class="token comment"># RUN  apt-get install \</span>
+<span class="token comment">#         python python3 \</span>
+<span class="token comment">#         python-pip python3-pip \</span>
+<span class="token comment">#         python-dev libffi-dev libssl-dev \</span>
+<span class="token comment">#         vim \</span>
+<span class="token comment">#         lib32ncurses5 lib32z1 \</span>
+<span class="token comment">#         ruby gem git \</span>
+<span class="token comment">#          -y</span>
+
+<span class="token comment"># install some lib using apt</span>
+<span class="token instruction"><span class="token keyword">RUN</span> dpkg --add-architecture i386 &#x26;&#x26; <span class="token operator">\</span>
+    apt-get -y update &#x26;&#x26; <span class="token operator">\</span>
+    apt install -y <span class="token operator">\</span>
+    libc6:i386 <span class="token operator">\</span>
+    libc6-dbg:i386 <span class="token operator">\</span>
+    libc6-dbg <span class="token operator">\</span>
+    lib32stdc++6 <span class="token operator">\</span>
+    g++-multilib <span class="token operator">\</span>
+    cmake <span class="token operator">\</span>
+    ipython3 <span class="token operator">\</span>
+    vim <span class="token operator">\</span>
+    net-tools <span class="token operator">\</span>
+    iputils-ping <span class="token operator">\</span>
+    libffi-dev <span class="token operator">\</span>
+    libssl-dev <span class="token operator">\</span>
+    python3-dev <span class="token operator">\</span>
+    python3-pip <span class="token operator">\</span>
+    build-essential <span class="token operator">\</span>
+    ruby <span class="token operator">\</span>
+    ruby-dev <span class="token operator">\</span>
+    tmux <span class="token operator">\</span>
+    strace <span class="token operator">\</span>
+    ltrace <span class="token operator">\</span>
+    nasm <span class="token operator">\</span>
+    wget <span class="token operator">\</span>
+    gdb <span class="token operator">\</span>
+    gdb-multiarch <span class="token operator">\</span>
+    netcat <span class="token operator">\</span>
+    socat <span class="token operator">\</span>
+    git <span class="token operator">\</span>
+    patchelf <span class="token operator">\</span>
+    gawk <span class="token operator">\</span>
+    file <span class="token operator">\</span>
+    python3-distutils <span class="token operator">\</span>
+    bison <span class="token operator">\</span>
+    rpm2cpio cpio <span class="token operator">\</span>
+    zstd <span class="token operator">\</span>
+    tzdata --fix-missing &#x26;&#x26; <span class="token operator">\</span>
+    rm -rf /var/lib/apt/list/*</span>
+
+<span class="token comment"># timezone</span>
+<span class="token instruction"><span class="token keyword">ENV</span> TZ=Asia/Shanghai</span>
+<span class="token instruction"><span class="token keyword">RUN</span> ln -fs /usr/share/zoneinfo/<span class="token variable">$TZ</span> /etc/localtime &#x26;&#x26; <span class="token operator">\</span>
+    dpkg-reconfigure -f noninteractive tzdata</span>
+
+
+<span class="token comment"># python setup</span>
+<span class="token instruction"><span class="token keyword">ENV</span> PIP_MIRROR=https://pypi.tuna.tsinghua.edu.cn/simple</span>
+
+<span class="token comment"># RUN pip install -i ${PIP_MIRROR} "pip &#x3C; 21.0" -U &#x26;&#x26; pip3 install -i ${PIP_MIRROR}  "pip &#x3C; 21.0" -U </span>
+<span class="token instruction"><span class="token keyword">RUN</span> python3 -m pip install -U pip -i <span class="token variable">${PIP_MIRROR}</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> pip config set global.index-url <span class="token variable">${PIP_MIRROR}</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> python3 -m pip install --no-cache-dir <span class="token operator">\</span>
+    ropgadget <span class="token operator">\</span>
+    z3-solver <span class="token operator">\</span>
+    smmap2 <span class="token operator">\</span>
+    apscheduler <span class="token operator">\</span>
+    ropper <span class="token operator">\</span>
+    unicorn <span class="token operator">\</span>
+    keystone-engine <span class="token operator">\</span>
+    capstone <span class="token operator">\</span>
+    angr <span class="token operator">\</span>
+    pebble <span class="token operator">\</span>
+    r2pipe <span class="token operator">\</span>
+    requests <span class="token operator">\</span>
+    pwntools</span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> gem sources --remove https://rubygems.org/ &#x26;&#x26; <span class="token operator">\</span>
+    gem sources -a http://gems.ruby-china.com/ &#x26;&#x26; <span class="token operator">\</span>
+    gem install one_gadget seccomp-tools &#x26;&#x26; <span class="token operator">\</span>
+    rm -rf /var/lib/gems/2.*/cache/*</span>
+
+
+
+<span class="token comment"># git setup</span>
+<span class="token instruction"><span class="token keyword">ENV</span> GIT_HTTP_PROXY=<span class="token variable">${HTTP_PROXY}</span> </span>
+<span class="token instruction"><span class="token keyword">RUN</span> git config --global http.proxy <span class="token variable">${GIT_HTTP_PROXY}</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> git clone --depth 1 https://github.com/pwndbg/pwndbg &#x26;&#x26; <span class="token operator">\</span>
+    cd pwndbg &#x26;&#x26; chmod +x setup.sh &#x26;&#x26; ./setup.sh</span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> git clone --depth 1 https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb &#x26;&#x26; <span class="token operator">\</span>
+    cd ~/Pwngdb &#x26;&#x26; mv .gdbinit .gdbinit-pwngdb &#x26;&#x26; <span class="token operator">\</span>
+    sed -i <span class="token string">"s?source ~/peda/peda.py?# source ~/peda/peda.py?g"</span> .gdbinit-pwngdb &#x26;&#x26; <span class="token operator">\</span>
+    echo <span class="token string">"source ~/Pwngdb/.gdbinit-pwngdb"</span> >> ~/.gdbinit</span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> git clone https://github.com/lieanu/LibcSearcher.git &#x26;&#x26; <span class="token operator">\</span>
+    cd LibcSearcher &#x26;&#x26; <span class="token operator">\</span>
+    python3 setup.py develop</span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo http_proxy=<span class="token variable">${HTTP_PROXY}</span>  >> ~/.bashrc </span>
+
+
+<span class="token instruction"><span class="token keyword">RUN</span> git clone --depth 1 https://github.com/niklasb/libc-database.git libc-database &#x26;&#x26; <span class="token operator">\</span>
+    cd libc-database &#x26;&#x26; ./get ubuntu debian || echo <span class="token string">"/libc-database/"</span> > ~/.libcdb_path &#x26;&#x26; <span class="token operator">\</span>
+    rm -rf /tmp/*</span>
+
+<span class="token comment"># wget </span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> http_proxy=<span class="token variable">${HTTP_PROXY}</span>  wget -O ~/.gdbinit-gef.py -q http://gef.blah.cat/py</span>
+
+
+
+<span class="token instruction"><span class="token keyword">RUN</span> mkdir /root/workspace</span>
+
+</code></pre>
+<h2 id="run-script"><a aria-hidden="true" class="anchor-heading icon-link" href="#run-script"></a>run script</h2>
+<pre class="language-sh"><code class="language-sh">#!/bin/bash
+
+# ctf-docker.sh
+OWNERNAME="b1babo"
+IMAGENAME="ctf-docker"
+TAGNAME="v.1.0"
+CONTAINERNAME="ctf"
+PORTSTRING=""
+if [ "${PORTFWD}" = "" ]
+then
+   PORTFWD="20080:80,20443:443,28080:8080,24433:4433,9999:9999"
+fi
+PORTFWD=$(echo ${PORTFWD} | tr -cd [0-9,:])
+IFS=',' read -ra PORTLIST &#x3C;&#x3C;&#x3C; "${PORTFWD}"
+for PORTPAIR in "${PORTLIST[@]}"
+do
+   SPORT=$(echo ${PORTPAIR} | cut -d':' -f1)
+   PORTSTRING="${PORTSTRING} -p ${SPORT}:${SPORT}"
+done
+
+
+
+
+function build_image(){
+    echo [+] building $OWNERNAME/$IMAGENAME:$TAGNAME
+    DOCKER_BUILDKIT=1 docker build -t $OWNERNAME/$IMAGENAME:$TAGNAME -f Dockerfile .
+}
+
+function run_docker(){
+    echo [+] runing $OWNERNAME/$IMAGENAME:$TAGNAME ${PORTSTRING}
+    docker run -it  ${PORTSTRING} --name $CONTAINERNAME --mount "type=bind,src=$(pwd)/workspace,dst=/root/workspace" $OWNERNAME/$IMAGENAME:$TAGNAME 
+        -e PORTFWD="${PORTFWD}" \
+        # --rm \
+        --cap-add=NET_ADMIN \
+        --cap-add=SYS_ADMIN \
+        --security-opt apparmor=unconfined \
+        --device=/dev/net/tun \
+        --network=host \
+        
+}
+
+function rm_image(){
+    docker container rm $IMAGENAME
+}
+
+
+# Handle arguments
+function show_help {
+    echo "Usage: $0 [-b] [-r]"
+    echo "-b - build ctf docker image"
+    echo "-r - run ctf docker"
+}
+
+
+if [[ $# &#x3C; 1 ]]; then
+    show_help
+    exit 1
+fi
+
+
+# 选项后面的冒号表示需要参数
+while getopts "brh" optname
+do
+    case "$optname" in
+      "b")
+        build_image
+        ;;
+      "r")
+        run_docker 
+        ;;
+      "h")
+        echo "Usage: $0 [-b] [-r]"
+        ;;
+      *)
+        echo "Unknown options"
+        ;;
+    esac
+    #echo "option index is $OPTIND"
+done
+
+</code></pre>

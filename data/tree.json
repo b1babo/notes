@@ -1,0 +1,164 @@
+{
+  "roots": [
+    {
+      "key": "ua6fcc7oj4utcqkv8dhmcb8",
+      "title": "b1babo's note",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "dendron-note",
+      "navExclude": false,
+      "children": [
+        {
+          "key": "z6zdce798dlnm1qvlbj0147",
+          "title": "About",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "dendron-note",
+          "navExclude": false,
+          "children": []
+        },
+        {
+          "key": "u92paxy6iqch8vik9v6f4gm",
+          "title": "Computer",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "dendron-note",
+          "navExclude": false,
+          "children": [
+            {
+              "key": "9s0k02hxv78c6mijo6sfbhi",
+              "title": "Docker",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "dendron-note",
+              "navExclude": false,
+              "children": []
+            },
+            {
+              "key": "4avrmav08jnnhtcpa5a13r1",
+              "title": "Link Load",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "dendron-note",
+              "navExclude": false,
+              "children": []
+            },
+            {
+              "key": "0p9re8ve9122i3i05851kut",
+              "title": "Security",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "dendron-note",
+              "navExclude": false,
+              "children": [
+                {
+                  "key": "j5fxwzqd090z5y7p4vbulnd",
+                  "title": "Ctf",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "dendron-note",
+                  "navExclude": false,
+                  "children": [
+                    {
+                      "key": "xjuuqf0xybll9epclbiqy5s",
+                      "title": "Ctf Docker",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "dendron-note",
+                      "navExclude": false,
+                      "children": []
+                    },
+                    {
+                      "key": "w5ka1vxiqngvx0e40s56y8t",
+                      "title": "Pwn",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "dendron-note",
+                      "navExclude": false,
+                      "children": [
+                        {
+                          "key": "hwo9g7p4ti771dbzgew52wr",
+                          "title": "Fmt_string",
+                          "icon": null,
+                          "hasTitleNumberOutlined": false,
+                          "vaultName": "dendron-note",
+                          "navExclude": false,
+                          "children": []
+                        },
+                        {
+                          "key": "6czaktejjj80bj1udleo8rj",
+                          "title": "Template",
+                          "icon": null,
+                          "hasTitleNumberOutlined": false,
+                          "vaultName": "dendron-note",
+                          "navExclude": false,
+                          "children": []
+                        },
+                        {
+                          "key": "rja6lqxtia650oetbi4yshi",
+                          "title": "Wp",
+                          "icon": null,
+                          "hasTitleNumberOutlined": false,
+                          "vaultName": "dendron-note",
+                          "navExclude": false,
+                          "children": [
+                            {
+                              "key": "epxdpi05tjyaz9lk4o0bfa0",
+                              "title": "Njctf2017_pingme",
+                              "icon": null,
+                              "hasTitleNumberOutlined": false,
+                              "vaultName": "dendron-note",
+                              "navExclude": false,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "key": "at8lgpuamaaz90dxra5ka5p",
+                  "title": "Pwn College",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "dendron-note",
+                  "navExclude": false,
+                  "children": [
+                    {
+                      "key": "yc5ui47ocbxpurp5h4310iw",
+                      "title": "Program Misuse",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "dendron-note",
+                      "navExclude": false,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "child2parent": {
+    "403": null,
+    "ua6fcc7oj4utcqkv8dhmcb8": null,
+    "u92paxy6iqch8vik9v6f4gm": "ua6fcc7oj4utcqkv8dhmcb8",
+    "0p9re8ve9122i3i05851kut": "u92paxy6iqch8vik9v6f4gm",
+    "at8lgpuamaaz90dxra5ka5p": "0p9re8ve9122i3i05851kut",
+    "yc5ui47ocbxpurp5h4310iw": "at8lgpuamaaz90dxra5ka5p",
+    "j5fxwzqd090z5y7p4vbulnd": "0p9re8ve9122i3i05851kut",
+    "w5ka1vxiqngvx0e40s56y8t": "j5fxwzqd090z5y7p4vbulnd",
+    "rja6lqxtia650oetbi4yshi": "w5ka1vxiqngvx0e40s56y8t",
+    "epxdpi05tjyaz9lk4o0bfa0": "rja6lqxtia650oetbi4yshi",
+    "6czaktejjj80bj1udleo8rj": "w5ka1vxiqngvx0e40s56y8t",
+    "hwo9g7p4ti771dbzgew52wr": "w5ka1vxiqngvx0e40s56y8t",
+    "xjuuqf0xybll9epclbiqy5s": "j5fxwzqd090z5y7p4vbulnd",
+    "4avrmav08jnnhtcpa5a13r1": "u92paxy6iqch8vik9v6f4gm",
+    "9s0k02hxv78c6mijo6sfbhi": "u92paxy6iqch8vik9v6f4gm",
+    "z6zdce798dlnm1qvlbj0147": "ua6fcc7oj4utcqkv8dhmcb8"
+  }
+}

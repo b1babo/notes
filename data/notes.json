@@ -1,0 +1,834 @@
+{
+  "notes": {
+    "403": {
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "fname": "403",
+      "id": "403",
+      "title": "This page has not yet sprouted",
+      "schemaStub": false,
+      "type": "note",
+      "updated": 1672232645987,
+      "created": 1672232645987,
+      "desc": "",
+      "links": [],
+      "anchors": {},
+      "children": [],
+      "parent": null,
+      "data": {}
+    },
+    "ua6fcc7oj4utcqkv8dhmcb8": {
+      "id": "ua6fcc7oj4utcqkv8dhmcb8",
+      "title": "b1babo's note",
+      "desc": "",
+      "updated": 1669076632533,
+      "created": 1668950311250,
+      "custom": {
+        "nav_order": 0,
+        "permalink": "/"
+      },
+      "fname": "root",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "15dbb1bbcda17b2620bd900a3c14c525",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "z6zdce798dlnm1qvlbj0147",
+        "u92paxy6iqch8vik9v6f4gm"
+      ],
+      "parent": null,
+      "data": {}
+    },
+    "u92paxy6iqch8vik9v6f4gm": {
+      "id": "u92paxy6iqch8vik9v6f4gm",
+      "title": "Computer",
+      "desc": "",
+      "updated": 1669076304120,
+      "created": 1669076304120,
+      "custom": {},
+      "fname": "computer",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "68e9205d0e1ed8dc4c84f744ae64c6c0",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "9s0k02hxv78c6mijo6sfbhi",
+        "4avrmav08jnnhtcpa5a13r1",
+        "0p9re8ve9122i3i05851kut"
+      ],
+      "parent": "ua6fcc7oj4utcqkv8dhmcb8",
+      "data": {}
+    },
+    "0p9re8ve9122i3i05851kut": {
+      "id": "0p9re8ve9122i3i05851kut",
+      "title": "Security",
+      "desc": "",
+      "updated": 1669076313604,
+      "created": 1669076313604,
+      "custom": {},
+      "fname": "computer.security",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "ecff10fd223f7fec9f6a4fece7eb48b5",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "j5fxwzqd090z5y7p4vbulnd",
+        "at8lgpuamaaz90dxra5ka5p"
+      ],
+      "parent": "u92paxy6iqch8vik9v6f4gm",
+      "data": {}
+    },
+    "at8lgpuamaaz90dxra5ka5p": {
+      "id": "at8lgpuamaaz90dxra5ka5p",
+      "title": "Pwn College",
+      "desc": "",
+      "updated": 1669076334089,
+      "created": 1669076334089,
+      "custom": {},
+      "fname": "computer.security.pwn-college",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "0d8b97fc6a3ce75d3e31f43555c02eab",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "yc5ui47ocbxpurp5h4310iw"
+      ],
+      "parent": "0p9re8ve9122i3i05851kut",
+      "data": {}
+    },
+    "yc5ui47ocbxpurp5h4310iw": {
+      "id": "yc5ui47ocbxpurp5h4310iw",
+      "title": "Program Misuse",
+      "desc": "",
+      "updated": 1669076410724,
+      "created": 1669076357635,
+      "custom": {},
+      "fname": "computer.security.pwn-college.program-misuse",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "09f6ca3243eb5be8b2ae2da749d6b389",
+      "links": [],
+      "anchors": {
+        "challenges": {
+          "type": "header",
+          "text": "Challenges",
+          "value": "challenges",
+          "line": 10,
+          "column": 0,
+          "depth": 2
+        },
+        "如何开始做题": {
+          "type": "header",
+          "text": "如何开始做题",
+          "value": "如何开始做题",
+          "line": 12,
+          "column": 0,
+          "depth": 3
+        },
+        "解题思路": {
+          "type": "header",
+          "text": "解题思路",
+          "value": "解题思路",
+          "line": 16,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level1": {
+          "type": "header",
+          "text": "babysuid-level1",
+          "value": "babysuid-level1",
+          "line": 20,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level2": {
+          "type": "header",
+          "text": "babysuid-level2",
+          "value": "babysuid-level2",
+          "line": 26,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level3": {
+          "type": "header",
+          "text": "babysuid-level3",
+          "value": "babysuid-level3",
+          "line": 33,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level4": {
+          "type": "header",
+          "text": "babysuid-level4",
+          "value": "babysuid-level4",
+          "line": 39,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level5": {
+          "type": "header",
+          "text": "babysuid-level5",
+          "value": "babysuid-level5",
+          "line": 45,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level6": {
+          "type": "header",
+          "text": "babysuid-level6",
+          "value": "babysuid-level6",
+          "line": 52,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level7": {
+          "type": "header",
+          "text": "babysuid-level7",
+          "value": "babysuid-level7",
+          "line": 59,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level8": {
+          "type": "header",
+          "text": "babysuid-level8",
+          "value": "babysuid-level8",
+          "line": 66,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level9": {
+          "type": "header",
+          "text": "babysuid-level9",
+          "value": "babysuid-level9",
+          "line": 73,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level10": {
+          "type": "header",
+          "text": "babysuid-level10",
+          "value": "babysuid-level10",
+          "line": 80,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level11": {
+          "type": "header",
+          "text": "babysuid-level11",
+          "value": "babysuid-level11",
+          "line": 87,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level12": {
+          "type": "header",
+          "text": "babysuid-level12",
+          "value": "babysuid-level12",
+          "line": 110,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level13": {
+          "type": "header",
+          "text": "babysuid-level13",
+          "value": "babysuid-level13",
+          "line": 121,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level14": {
+          "type": "header",
+          "text": "babysuid-level14",
+          "value": "babysuid-level14",
+          "line": 132,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level15": {
+          "type": "header",
+          "text": "babysuid-level15",
+          "value": "babysuid-level15",
+          "line": 139,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level16": {
+          "type": "header",
+          "text": "babysuid-level16",
+          "value": "babysuid-level16",
+          "line": 146,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level17": {
+          "type": "header",
+          "text": "babysuid-level17",
+          "value": "babysuid-level17",
+          "line": 155,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level18": {
+          "type": "header",
+          "text": "babysuid-level18",
+          "value": "babysuid-level18",
+          "line": 165,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level19": {
+          "type": "header",
+          "text": "babysuid-level19",
+          "value": "babysuid-level19",
+          "line": 174,
+          "column": 0,
+          "depth": 3
+        },
+        "babysuid-level20": {
+          "type": "header",
+          "text": "babysuid-level20",
+          "value": "babysuid-level20",
+          "line": 187,
+          "column": 0,
+          "depth": 3
+        }
+      },
+      "children": [],
+      "parent": "at8lgpuamaaz90dxra5ka5p",
+      "data": {}
+    },
+    "j5fxwzqd090z5y7p4vbulnd": {
+      "id": "j5fxwzqd090z5y7p4vbulnd",
+      "title": "Ctf",
+      "desc": "",
+      "updated": 1670856053880,
+      "created": 1670856053880,
+      "custom": {},
+      "fname": "computer.security.ctf",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "07b2be891a787eca79425824c1d6d6cc",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "xjuuqf0xybll9epclbiqy5s",
+        "w5ka1vxiqngvx0e40s56y8t"
+      ],
+      "parent": "0p9re8ve9122i3i05851kut",
+      "data": {}
+    },
+    "w5ka1vxiqngvx0e40s56y8t": {
+      "id": "w5ka1vxiqngvx0e40s56y8t",
+      "title": "Pwn",
+      "desc": "",
+      "updated": 1672143942428,
+      "created": 1670856062618,
+      "custom": {},
+      "fname": "computer.security.ctf.pwn",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "5639756824d8c9a67bd58c51e5fb08db",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "hwo9g7p4ti771dbzgew52wr",
+        "6czaktejjj80bj1udleo8rj",
+        "rja6lqxtia650oetbi4yshi"
+      ],
+      "parent": "j5fxwzqd090z5y7p4vbulnd",
+      "data": {}
+    },
+    "rja6lqxtia650oetbi4yshi": {
+      "id": "rja6lqxtia650oetbi4yshi",
+      "title": "Wp",
+      "desc": "",
+      "updated": 1672228576496,
+      "created": 1672228576496,
+      "custom": {},
+      "fname": "computer.security.ctf.pwn.wp",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "1c9683f46ac4c7b9be930bb1d6180640",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "epxdpi05tjyaz9lk4o0bfa0"
+      ],
+      "parent": "w5ka1vxiqngvx0e40s56y8t",
+      "data": {}
+    },
+    "epxdpi05tjyaz9lk4o0bfa0": {
+      "id": "epxdpi05tjyaz9lk4o0bfa0",
+      "title": "Njctf2017_pingme",
+      "desc": "",
+      "updated": 1672232485842,
+      "created": 1672228677711,
+      "custom": {},
+      "fname": "computer.security.ctf.pwn.wp.njctf2017_pingme",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "4e4f6f48eee053368a31a7cf36ad924e",
+      "links": [],
+      "anchors": {},
+      "children": [],
+      "parent": "rja6lqxtia650oetbi4yshi",
+      "data": {}
+    },
+    "6czaktejjj80bj1udleo8rj": {
+      "id": "6czaktejjj80bj1udleo8rj",
+      "title": "Template",
+      "desc": "",
+      "updated": 1672232545966,
+      "created": 1672064406757,
+      "custom": {},
+      "fname": "computer.security.ctf.pwn.template",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "4baa88441bd6ec9c617208a7f18740cd",
+      "links": [],
+      "anchors": {
+        "pwn题模板": {
+          "type": "header",
+          "text": "pwn题模板",
+          "value": "pwn题模板",
+          "line": 8,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "w5ka1vxiqngvx0e40s56y8t",
+      "data": {}
+    },
+    "hwo9g7p4ti771dbzgew52wr": {
+      "id": "hwo9g7p4ti771dbzgew52wr",
+      "title": "Fmt_string",
+      "desc": "",
+      "updated": 1672143923737,
+      "created": 1670856082019,
+      "custom": {},
+      "fname": "computer.security.ctf.pwn.fmt_string",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "762bf80ad726da7d708fb7d99689356a",
+      "links": [],
+      "anchors": {
+        "格式化字符串漏洞": {
+          "type": "header",
+          "text": "格式化字符串漏洞",
+          "value": "格式化字符串漏洞",
+          "line": 8,
+          "column": 0,
+          "depth": 1
+        },
+        "格式化输出函数和格式字符串用法": {
+          "type": "header",
+          "text": "格式化输出函数和格式字符串用法",
+          "value": "格式化输出函数和格式字符串用法",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "格式化占位符": {
+          "type": "header",
+          "text": "格式化占位符",
+          "value": "格式化占位符",
+          "line": 11,
+          "column": 0,
+          "depth": 3
+        },
+        "格式字符串用法": {
+          "type": "header",
+          "text": "格式字符串用法",
+          "value": "格式字符串用法",
+          "line": 36,
+          "column": 0,
+          "depth": 3
+        },
+        "调用printf时栈结构": {
+          "type": "header",
+          "text": "调用printf时栈结构",
+          "value": "调用printf时栈结构",
+          "line": 55,
+          "column": 0,
+          "depth": 4
+        },
+        "漏洞原理": {
+          "type": "header",
+          "text": "漏洞原理",
+          "value": "漏洞原理",
+          "line": 89,
+          "column": 0,
+          "depth": 3
+        },
+        "如何利用": {
+          "type": "header",
+          "text": "如何利用",
+          "value": "如何利用",
+          "line": 103,
+          "column": 0,
+          "depth": 3
+        },
+        "读原语": {
+          "type": "header",
+          "text": "读原语",
+          "value": "读原语",
+          "line": 104,
+          "column": 0,
+          "depth": 4
+        },
+        "写原语": {
+          "type": "header",
+          "text": "写原语",
+          "value": "写原语",
+          "line": 125,
+          "column": 0,
+          "depth": 4
+        },
+        "64位利用": {
+          "type": "header",
+          "text": "64位利用",
+          "value": "64位利用",
+          "line": 145,
+          "column": 0,
+          "depth": 4
+        },
+        "如何挖掘漏洞": {
+          "type": "header",
+          "text": "如何挖掘漏洞",
+          "value": "如何挖掘漏洞",
+          "line": 153,
+          "column": 0,
+          "depth": 3
+        },
+        "代码审计": {
+          "type": "header",
+          "text": "代码审计",
+          "value": "代码审计",
+          "line": 154,
+          "column": 0,
+          "depth": 4
+        },
+        "fuzz": {
+          "type": "header",
+          "text": "fuzz",
+          "value": "fuzz",
+          "line": 156,
+          "column": 0,
+          "depth": 4
+        },
+        "参考": {
+          "type": "header",
+          "text": "参考",
+          "value": "参考",
+          "line": 166,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "w5ka1vxiqngvx0e40s56y8t",
+      "data": {}
+    },
+    "xjuuqf0xybll9epclbiqy5s": {
+      "id": "xjuuqf0xybll9epclbiqy5s",
+      "title": "Ctf Docker",
+      "desc": "",
+      "updated": 1672227017469,
+      "created": 1672142284036,
+      "custom": {},
+      "fname": "computer.security.ctf.ctf-docker",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "6862807d1bfaa79bcbedcdc22846024f",
+      "links": [],
+      "anchors": {
+        "docker-file": {
+          "type": "header",
+          "text": "docker file",
+          "value": "docker-file",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "run-script": {
+          "type": "header",
+          "text": "run script",
+          "value": "run-script",
+          "line": 142,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "j5fxwzqd090z5y7p4vbulnd",
+      "data": {}
+    },
+    "4avrmav08jnnhtcpa5a13r1": {
+      "id": "4avrmav08jnnhtcpa5a13r1",
+      "title": "Link Load",
+      "desc": "",
+      "updated": 1672101151077,
+      "created": 1669680803417,
+      "custom": {},
+      "fname": "computer.link-load",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "9a9df8d41d3751a10c8be384a9b2194b",
+      "links": [],
+      "anchors": {
+        "got表": {
+          "type": "header",
+          "text": "got表",
+          "value": "got表",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "plt": {
+          "type": "header",
+          "text": "plt",
+          "value": "plt",
+          "line": 33,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "u92paxy6iqch8vik9v6f4gm",
+      "data": {}
+    },
+    "9s0k02hxv78c6mijo6sfbhi": {
+      "id": "9s0k02hxv78c6mijo6sfbhi",
+      "title": "Docker",
+      "desc": "",
+      "updated": 1669678839211,
+      "created": 1669248714966,
+      "custom": {},
+      "fname": "computer.docker",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "55afd07d2b8c4db9c9ce32d9fb824ad5",
+      "links": [],
+      "anchors": {
+        "dockerinstall": {
+          "type": "header",
+          "text": "docker install",
+          "value": "dockerinstall",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "dockerstart": {
+          "type": "header",
+          "text": "docker start",
+          "value": "dockerstart",
+          "line": 17,
+          "column": 0,
+          "depth": 2
+        },
+        "设置国内源": {
+          "type": "header",
+          "text": "设置国内源",
+          "value": "设置国内源",
+          "line": 32,
+          "column": 0,
+          "depth": 2
+        },
+        "dockerimage": {
+          "type": "header",
+          "text": "docker image",
+          "value": "dockerimage",
+          "line": 61,
+          "column": 0,
+          "depth": 2
+        },
+        "dockercontainer": {
+          "type": "header",
+          "text": "docker container",
+          "value": "dockercontainer",
+          "line": 76,
+          "column": 0,
+          "depth": 2
+        },
+        "运行容器": {
+          "type": "header",
+          "text": "运行容器",
+          "value": "运行容器",
+          "line": 80,
+          "column": 0,
+          "depth": 4
+        },
+        "镜像导出导入": {
+          "type": "header",
+          "text": "镜像导出导入",
+          "value": "镜像导出导入",
+          "line": 108,
+          "column": 0,
+          "depth": 3
+        },
+        "参考": {
+          "type": "header",
+          "text": "参考",
+          "value": "参考",
+          "line": 120,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "u92paxy6iqch8vik9v6f4gm",
+      "data": {}
+    },
+    "z6zdce798dlnm1qvlbj0147": {
+      "id": "z6zdce798dlnm1qvlbj0147",
+      "title": "About",
+      "desc": "",
+      "updated": 1672143354858,
+      "created": 1672143354858,
+      "custom": {},
+      "fname": "about",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "46f869b68fb0bcd103757d7475f7038b",
+      "links": [],
+      "anchors": {},
+      "children": [],
+      "parent": "ua6fcc7oj4utcqkv8dhmcb8",
+      "data": {}
+    }
+  },
+  "domains": [
+    {
+      "id": "ua6fcc7oj4utcqkv8dhmcb8",
+      "title": "b1babo's note",
+      "desc": "",
+      "updated": 1669076632533,
+      "created": 1668950311250,
+      "custom": {
+        "nav_order": 0,
+        "permalink": "/"
+      },
+      "fname": "root",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "dendron-note"
+      },
+      "contentHash": "15dbb1bbcda17b2620bd900a3c14c525",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "z6zdce798dlnm1qvlbj0147",
+        "u92paxy6iqch8vik9v6f4gm"
+      ],
+      "parent": null,
+      "data": {},
+      "body": "\nwrite and record something.\n"
+    }
+  ],
+  "noteIndex": {
+    "id": "ua6fcc7oj4utcqkv8dhmcb8",
+    "title": "b1babo's note",
+    "desc": "",
+    "updated": 1669076632533,
+    "created": 1668950311250,
+    "custom": {
+      "nav_order": 0,
+      "permalink": "/"
+    },
+    "fname": "root",
+    "type": "note",
+    "vault": {
+      "fsPath": ".",
+      "selfContained": true,
+      "name": "dendron-note"
+    },
+    "contentHash": "15dbb1bbcda17b2620bd900a3c14c525",
+    "links": [],
+    "anchors": {},
+    "children": [
+      "z6zdce798dlnm1qvlbj0147",
+      "u92paxy6iqch8vik9v6f4gm"
+    ],
+    "parent": null,
+    "data": {},
+    "body": "\nwrite and record something.\n"
+  },
+  "vaults": [
+    {
+      "fsPath": ".",
+      "selfContained": true,
+      "name": "dendron-note"
+    }
+  ]
+}
