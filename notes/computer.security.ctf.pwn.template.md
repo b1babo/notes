@@ -2,7 +2,7 @@
 id: 6czaktejjj80bj1udleo8rj
 title: Template
 desc: ''
-updated: 1672065487519
+updated: 1672186420585
 created: 1672064406757
 ---
 
@@ -41,7 +41,6 @@ elf = ""
 libc = ""
 if target:
     context.binary = target
-if target:
     elf = ELF(target)
 if target_libc:
     libc = ELF(target_libc)
@@ -79,7 +78,12 @@ def debug(gdbscript="", stop=False):
             pause()
         gdb.attach(io, gdbscript=gdbscript)
 
-
+def exec_fmt(payload):
+    io.sendline(payload)
+    info = io.recv()
+    return info
+# auto = FmtStr(exec_fmt)
+# offset = auto.offset
 # ========================================
 stop = pause
 S = pause
